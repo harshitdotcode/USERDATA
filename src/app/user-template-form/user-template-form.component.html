@@ -1,0 +1,28 @@
+<h1>This is the tmeplate form in angular </h1>
+<!-- when ever this submkt button is pressed the default behaviour ofthe html and a javscript event
+ is triggered to take that control form it ngSubmit is used for that default 
+dehaviour of the html  -->
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <label for="NAME"> NAME: </label>
+    <!-- here ngModel work as the control and name attribute is used as name for the ngModel same goes for all the field
+    ngModel recognise this input field should be the part of the javascript object representation of this form 
+    name attribute is not the angular specific -->
+    <input type="text" placeholder="enter your name" ngModel  name="name">
+<br /><br />
+    <label for="EMAIL">EMAIL:</label>
+<input type="text" placeholder="enter your email" ngModel  name="email">
+<br /><br />
+<label for="PASSWORD">PASSWORD:</label>
+<input type="password" placeholder="enter your password" ngModel  name="password">
+<br /><br />
+<button type="submit"> SUBMIT INFO</button>
+</form>
+
+
+<!-- NOTE:
+1> Everything you do you do on template and everything you want to
+ change about do it on template as on to add to a functionality 
+2> On this form object we want to get acess to the form created by the angular
+we heard about the local references you can place on html elements to get access to them we could 
+place #f on the form element and now we could access this form element on the f reference in our template
+and we can psss the f as the argument to the onSubmit method adn print there   -->

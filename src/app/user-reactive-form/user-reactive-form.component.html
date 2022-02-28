@@ -1,0 +1,40 @@
+
+<h1> My Reactive Form and Vlidators</h1>
+<form [formGroup]="form" (ngSubmit) = "submitfunc()">
+    <label for="Fname"> First Name: </label>
+    <input type="text" placeholder="Enter First name" formControlName="Fname">   
+    <!-- <span style="color:red;" *ngIf="form.get('Fname')?.invalid && form.get('Fname')?.touched && form.errors?.required"> this filed is invalid </span> -->
+    <span style="color:red;" *ngIf="form.get('Fname') && ( form.get('Fname')?.touched || form.get('Fname')?.dirty ) && form.get('Fname')?.invalid && form.get('Fname')?.errors?.required"> this filed is required </span>
+    <span style="color:red;" *ngIf="form.get('Fname') && ( form.get('Fname')?.touched || form.get('Fname')?.dirty ) && form.get('Fname')?.invalid && form.get('Fname')?.errors?.pattern"> Please enter valid name</span>
+
+     <br />  <br />
+    <label for="Lname"> Last Name: </label>
+    <input type="text" placeholder="Enter Last name" formControlName="Lname">   
+    <span style="color:red;" *ngIf="form.get('Lname') && ( form.get('Lname')?.touched || form.get('Lname')?.dirty ) && form.get('Lname')?.invalid && form.get('Lname')?.errors?.required"> this filed is required </span>
+    <span style="color:red;" *ngIf="form.get('Lname') && ( form.get('Lname')?.touched || form.get('Lname')?.dirty ) && form.get('Lname')?.invalid && form.get('Lname')?.errors?.pattern"> Please enter valid name</span>
+<br />  <br />
+    <label for="Age"> Age: </label>
+    <input style="margin-left:19.8%" type="text" placeholder="Enter Age" formControlName="Age">   
+    <span style="color:red;" *ngIf="form.get('Age') && form.get('Age')?.invalid && form.get('Age')?.touched && (form.get('Age')?.errors?.pattern || form.get('Age')?.errors?.maxLength)"> this filed is invalid </span>
+    <br /> <br />
+    <div class="univlist"> <label for="university_list"> university_list </label>
+    <select >
+        <option *ngFor="let i of univD">{{i.name}}</option>
+    </select>
+</div>
+
+    <br />
+    <label for="Email"> Email: </label>
+    <input style="margin-left:18.8%" type="email" placeholder="Enter Email Id" formControlName="Email">   
+    <span style="color:red;" *ngIf="form.get('Email')?.invalid && form.get('Email')?.touched "> this filed is invalid </span>
+    <br /> <br />
+    <label for="Password"> Password: </label>
+    <input style="margin-left:15.8%" type="password" placeholder="Enter Password" formControlName="Password">   
+    <span style="color:red;" *ngIf="form.get('Password')?.invalid && form.get('Password')?.touched "> this filed is invalid </span>
+    <br /> <br />
+    <button type="submit" [disabled]="form.invalid"> Submit </button> | 
+    <button type="reset"> Clear </button> 
+</form>
+
+
+
